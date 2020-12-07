@@ -1,33 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top p-3">
   <%# <a class="navbar-brand" href="">TeamParler</a> %>
-  <%= link_to 'TeamParler', root_path, class: "navbar-brand h3" %>
+  <%= link_to 'TeamParler', root_path, class: "navbar-brand font-italic h1" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
-    <span class="navbar-text">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%# <a class="nav-link" href="#"><span class="sr-only">(current)</span></a> %>
       </li>
     </ul>
-    <ul class="navbar-nav nav justify-content-center">
+    <ul class="navbar-nav nav justify-content-center btn-toolbar">
       <% if user_signed_in? %>
         <li class="nav-item" >
-          <%= link_to 'マイページ', "/users/#{current_user.id}", class: "nav-link text-white" %>
+          <%= link_to 'マイページ', "/users/#{current_user.id}", class: "nav-link text-white btn btn-outline-primary" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-white btn btn-outline-primary" %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to 'ログイン', new_user_session_path, class: "nav-link text-white" %>
+          <%= link_to 'ログイン', new_user_session_path, class: "nav-link text-white btn btn-outline-primary" %>
         </li>
         <li class="nav-item">
-          <%= link_to '新規登録', new_user_registration_path, class: "nav-link text-white" %>
+          <%= link_to '新規登録', new_user_registration_path, class: "nav-link text-white btn btn-outline-primary" %>
         </li>
       <% end %>
     </ul>
-    </span>
   </div>
 </nav>
