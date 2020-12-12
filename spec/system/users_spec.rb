@@ -36,12 +36,11 @@ RSpec.describe "Users", type: :system do
       # ユーザー登録ページへ遷移
       visit new_user_registration_path
 
-      # 登録の為の情報を入力(正しい値)
-      fill_in 'user_nickname', with: @user.nickname
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      # 故意にhogeと入力する(不正な値)
-      fill_in 'user_password_confirmation', with: "hoge"
+      # 登録の為の情報を入力(不正な値)
+      fill_in 'user_nickname', with: ""
+      fill_in 'user_email', with: ""
+      fill_in 'user_password', with: ""
+      fill_in 'user_password_confirmation', with: ""
 
       # 登録ボタンをクリック
       find('input[name="commit"]').click
@@ -86,8 +85,8 @@ RSpec.describe "Users", type: :system do
       visit new_user_session_path
 
       # ログインの為の情報を入力(不正な値)
-      fill_in 'user_email', with: "hoge"
-      fill_in 'user_password', with: "hoge"
+      fill_in 'user_email', with: ""
+      fill_in 'user_password', with: ""
 
       # ログインボタンをクリック
       find('input[name="commit"]').click
